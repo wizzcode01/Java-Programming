@@ -116,10 +116,34 @@ void main() {
 //    int[] output = ReverseArray(lists);
 //    System.out.println(Arrays.toString(output));
 
+   Scanner scanner = new Scanner(System.in);
 
+   int size;
+   System.out.print("Enter the number of values: ");
+   size = scanner.nextInt();
 
+    int[] lists = new int[size];
+
+   System.out.println("Enter the values: ");
+
+   for(int i=0; i < lists.length; i++){
+       lists[i] = scanner.nextInt();
+   }
+
+   if(consecutiveMatch(lists)){
+       System.out.println("The list has consecutive four numbers.");
+   }else{
+       System.out.println("The list has no consecutive four numbers.");
+   }
 
 }
+  public static boolean consecutiveMatch(int[] lists){
+     for(int i =0; i < lists.length -  4; i++){
+         if(lists[i] == lists[i + 1] && lists[i] == lists[i + 2] && lists[i] == lists[i + 3]);
+         return true;
+     }
+     return false;
+  }
 //  public static int[] ReverseArray(int[] lists){
 //
 //    for(int i = 0, j = lists.length - 1; i < j; i++, j--){
