@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Root {
-void main() {
+    void main() {
 //    int[] list = new int[5];
 //
 //    list[0] = 2;
@@ -19,7 +19,7 @@ void main() {
 //        System.out.println(year + "\t" + PrintLeapYear(year));
 //    }
 
-    // reversing an array
+        // reversing an array
 //    int[] list = {1, 2, 3, 4, 5}; // output {5, 4, 3, 2, 1}
 //
 //    for(int i = 0, j = list.length - 1; i < j; i++, j--){
@@ -30,14 +30,14 @@ void main() {
 //       // System.out.println(temp);
 //    }
 
-    // Linear Search
+        // Linear Search
 //    int [] list = {1, 3, 5, 6, -3, 0, 52, 2};
 //    int i = LinearSearch(list, 5);
 //    int j = LinearSearch(list, 52);
 //    System.out.println(i);
 //    System.out.println(j);
 
-    //Binary search
+        //Binary search
 //    int [] list = { 59, 50, 7, 66, 79, 45, 70, 60, 10, 11, 2, 4, 69};
 //    Arrays.sort(list);
 //
@@ -116,34 +116,80 @@ void main() {
 //    int[] output = ReverseArray(lists);
 //    System.out.println(Arrays.toString(output));
 
-   Scanner scanner = new Scanner(System.in);
+//   Scanner scanner = new Scanner(System.in);
+//
+//   int size;
+//   System.out.print("Enter the number of values: ");
+//   size = scanner.nextInt();
+//
+//    int[] lists = new int[size];
+//
+//   System.out.println("Enter the values: ");
+//
+//   for(int i=0; i < lists.length; i++){
+//       lists[i] = scanner.nextInt();
+//   }
+//
+//   if(consecutiveMatch(lists)){
+//       System.out.println("The list has consecutive four numbers.");
+//   }else{
+//       System.out.println("The list has no consecutive four numbers.");
+//   }
+        Scanner scanner = new Scanner(System.in);
 
-   int size;
-   System.out.print("Enter the number of values: ");
-   size = scanner.nextInt();
+        int size = 10;
+        int[] lists = new int[size];
 
-    int[] lists = new int[size];
+        System.out.print("Enter ten numbers: ");
+        for (int i = 0; i < lists.length; i++) {
+            lists[i] = scanner.nextInt();
+        }
 
-   System.out.println("Enter the values: ");
+      int[] newArray =  eliminateDuplicates(lists);
+        // 3. Display the unique results cleanly
+        System.out.print("The distinct numbers are: ");
+      for(int i=0; i < newArray.length; i++){
+          System.out.println(newArray[i] + " ");
+      }
+      System.out.println();
+    }
 
-   for(int i=0; i < lists.length; i++){
-       lists[i] = scanner.nextInt();
-   }
+    public static int[] eliminateDuplicates(int[] lists) {
+        int[] temp = new int[lists.length];
+        int duplicateNumber = 0; // track how many unique numbers is found.
 
-   if(consecutiveMatch(lists)){
-       System.out.println("The list has consecutive four numbers.");
-   }else{
-       System.out.println("The list has no consecutive four numbers.");
-   }
+        for (int i = 0; i < lists.length; i++) {
+            int originalNumber = lists[i];
 
-}
-  public static boolean consecutiveMatch(int[] lists){
-     for(int i =0; i < lists.length -  4; i++){
-         if(lists[i] == lists[i + 1] && lists[i] == lists[i + 2] && lists[i] == lists[i + 3]);
-         return true;
-     }
-     return false;
-  }
+            boolean alreadyExits = false;
+
+            for (int j = 0; j < duplicateNumber; j++) {
+                if (temp[j] == originalNumber) {
+                    alreadyExits = true;
+                    break;
+                }
+            }
+
+            if (!alreadyExits) {
+                temp[duplicateNumber] = originalNumber;
+                duplicateNumber++;
+            }
+
+        }
+
+        int[] result = new int[duplicateNumber];
+        System.arraycopy(temp, 0, result, 0, duplicateNumber);
+
+        return result;
+    }
+
+//  public static boolean consecutiveMatch(int[] lists){
+//    for(int i =0; i < lists.length -  4; i++){
+//         if(lists[i] == lists[i + 1] && lists[i] == lists[i + 2] && lists[i] == lists[i + 3]);
+//         return true;
+//    }
+//     return false;
+//  }
 //  public static int[] ReverseArray(int[] lists){
 //
 //    for(int i = 0, j = lists.length - 1; i < j; i++, j--){
