@@ -3,8 +3,7 @@ package programming;
 import javax.swing.plaf.synth.SynthDesktopIconUI;
 import java.lang.classfile.instruction.LineNumber;
 import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class Root {
     void main() {
@@ -137,51 +136,62 @@ public class Root {
 //   }
         Scanner scanner = new Scanner(System.in);
 
-        int size = 10;
-        int[] lists = new int[size];
+//        int size = 10;
+//        int[] lists = new int[size];
+//
+//        System.out.print("Enter ten numbers: ");
+//        for (int i = 0; i < lists.length; i++) {
+//            lists[i] = scanner.nextInt();
+//        }
+//
+//      int[] newArray =  eliminateDuplicates(lists);
+//        // 3. Display the unique results cleanly
+//        System.out.print("The distinct numbers are: ");
+//      for(int i=0; i < newArray.length; i++){
+//          System.out.println(newArray[i] + " ");
+//      }
+//      System.out.println();
 
-        System.out.print("Enter ten numbers: ");
-        for (int i = 0; i < lists.length; i++) {
-            lists[i] = scanner.nextInt();
-        }
-
-      int[] newArray =  eliminateDuplicates(lists);
-        // 3. Display the unique results cleanly
-        System.out.print("The distinct numbers are: ");
-      for(int i=0; i < newArray.length; i++){
-          System.out.println(newArray[i] + " ");
-      }
-      System.out.println();
+//      ArrayList<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 4, 5, 3, 4, 3, 6, 7, 8, 7, 9,9));
+//
+//        Collections.sort(list);
+//      // convert list to linkedhashset to eliminate duplicates
+//        LinkedHashSet<Integer> set = new LinkedHashSet<>(list);
+//
+//        list.clear();
+//        list.addAll(set);
+//
+//        System.out.println("Unique ArrayList: " + list);
     }
 
-    public static int[] eliminateDuplicates(int[] lists) {
-        int[] temp = new int[lists.length];
-        int duplicateNumber = 0; // track how many unique numbers is found.
-
-        for (int i = 0; i < lists.length; i++) {
-            int originalNumber = lists[i];
-
-            boolean alreadyExits = false;
-
-            for (int j = 0; j < duplicateNumber; j++) {
-                if (temp[j] == originalNumber) {
-                    alreadyExits = true;
-                    break;
-                }
-            }
-
-            if (!alreadyExits) {
-                temp[duplicateNumber] = originalNumber;
-                duplicateNumber++;
-            }
-
-        }
-
-        int[] result = new int[duplicateNumber];
-        System.arraycopy(temp, 0, result, 0, duplicateNumber);
-
-        return result;
-    }
+//    public static int[] eliminateDuplicates(int[] lists) {
+//        int[] temp = new int[lists.length];
+//        int duplicateNumber = 0; // track how many unique numbers is found.
+//
+//        for (int i = 0; i < lists.length; i++) {
+//            int originalNumber = lists[i];
+//
+//            boolean alreadyExits = false;
+//
+//            for (int j = 0; j < duplicateNumber; j++) {
+//                if (temp[j] == originalNumber) {
+//                    alreadyExits = true;
+//                    break;
+//                }
+//            }
+//
+//            if (!alreadyExits) {
+//                temp[duplicateNumber] = originalNumber;
+//                duplicateNumber++;
+//            }
+//
+//        }
+//
+//        int[] result = new int[duplicateNumber];
+//        System.arraycopy(temp, 0, result, 0, duplicateNumber);
+//
+//        return result;
+//    }
 
 //  public static boolean consecutiveMatch(int[] lists){
 //    for(int i =0; i < lists.length -  4; i++){
