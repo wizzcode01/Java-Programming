@@ -159,8 +159,7 @@ public class Root {
 //        LinkedHashSet<Integer> set = new LinkedHashSet<>(list);
 //
 //        list.clear();
-//        list.addAll(set);
-//
+//        list.addAll(set
 //        System.out.println("Unique ArrayList: " + list);
     }
 
