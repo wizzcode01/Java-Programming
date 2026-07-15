@@ -1,6 +1,9 @@
 package programming;
 
+import bankingProject.Transactions;
+
 import javax.naming.InsufficientResourcesException;
+import javax.xml.crypto.Data;
 
 public class UserAccount {
     private String username;
@@ -17,11 +20,24 @@ public class UserAccount {
 
         public void withdraw(double amount){
             if(amount > balance){
-               throw new javax.naming.InsufficientResourcesException("Insufficient funds for this withdrawal.");
+               throw new IllegalArgumentException("Insufficient funds for this withdrawal.");
             }
-            else if (amount < balance){
-                IllegalArgumentException
+            else if (amount <= 0){
+               throw new IllegalArgumentException("Amount must be greater than zero");
+            }else{
+                balance -= amount;
+                System.out.println("Sucessfull withdrawal of " + amount);
             }
+        }
+    }
+
+   public final class TransactionReceipt{
+        private String transactionId;
+        private int amountProcessed;
+        private Data timestamp;
+
+        TransactionReceipt(){
+
         }
     }
 }
