@@ -4,6 +4,7 @@ import bankingProject.Transactions;
 
 import javax.naming.InsufficientResourcesException;
 import javax.xml.crypto.Data;
+import java.time.Instant;
 
 public class UserAccount {
     private String username;
@@ -32,12 +33,28 @@ public class UserAccount {
     }
 
    public final class TransactionReceipt{
-        private String transactionId;
-        private int amountProcessed;
-        private Data timestamp;
+        private final String transactionId;
+        private final double amountProcessed;
+        private final Instant timestamp;
 
-        TransactionReceipt(){
+       public TransactionReceipt(String transactionId, double amountProcessed, Instant timestamp){
+            this.transactionId = transactionId;
+            this.amountProcessed = amountProcessed;
+            this.timestamp = timestamp;
 
+
+        }
+
+        public String getTransactionId(){
+           return transactionId;
+        }
+
+        public double getAmountProcessed(){
+           return amountProcessed;
+        }
+
+        public Instant getTimestamp(){
+           return timestamp;
         }
     }
 }
