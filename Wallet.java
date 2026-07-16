@@ -21,9 +21,9 @@ public class Wallet {
         balance =+ amount;
     }
 
-    public void withdraw(double amount){
+    public void withdraw(double amount) throws InsufficientFundsException {
         if(amount > balance){
-            throw new IllegalArgumentException("Insufficient funds for this withdrawal.");
+            throw new InsufficientFundsException("Insufficient funds for this withdrawal.");
         }
         else if (amount <= 0){
             throw new IllegalArgumentException("Amount must be greater than zero");

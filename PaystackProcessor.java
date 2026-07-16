@@ -6,7 +6,8 @@ public class PaystackProcessor extends PaymentProcessor {
     }
 
     @Override
-   public TransactionReceipt process(Wallet wallet, double amount){
+   public TransactionReceipt process(Wallet wallet, double amount) throws InsufficientFundsException{
+        System.out.println("Routing via Paystack gateway...");
         wallet.withdraw(amount);
 
         return new TransactionReceipt(amount);
