@@ -6,7 +6,7 @@ public class PaystackProcessor extends PaymentProcessor {
     }
 
     @Override
-   public TransactionReceipt process(Wallet wallet, double amount) throw {
+   public TransactionReceipt process(Wallet wallet, double amount){
         wallet.withdraw(amount);
 
         return new TransactionReceipt(amount);

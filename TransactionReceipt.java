@@ -1,16 +1,17 @@
 package programming;
 
 import java.time.Instant;
+import java.util.UUID;
 
 public final class TransactionReceipt {
     private final String transactionId;
     private final double amountProcessed;
-    private final Instant timestamp;
+    private final long timestamp;
 
-    public TransactionReceipt(String transactionId, double amountProcessed, Instant timestamp) {
-        this.transactionId = transactionId;
+    public TransactionReceipt(double amountProcessed) {
+        this.transactionId = UUID.randomUUID().toString();
         this.amountProcessed = amountProcessed;
-        this.timestamp = timestamp;
+        this.timestamp = System.currentTimeMillis();
 
     }
 
@@ -22,7 +23,7 @@ public final class TransactionReceipt {
         return amountProcessed;
     }
 
-    public Instant getTimestamp() {
+    public long getTimestamp() {
         return timestamp;
     }
 
