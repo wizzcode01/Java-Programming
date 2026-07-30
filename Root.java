@@ -7,6 +7,24 @@ import java.util.*;
 
 public class Root {
     void main() {
+    UserAccount account = new UserAccount("wizzycode", 100.0);
+
+    SubscriptionManager manager = new SubscriptionManager();
+    NotificationService emailService = new ConsoleNotificationServiceImpl();
+    PaymentProcessor stripe = new StripeProcessor();
+
+    System.out.println("--- OPENING STATE ---");
+    System.out.println("User: " + account.getUsername() + " | Balance: $" + account.getWallet().getBalance());
+    System.out.println();
+
+    manager.reneSubscription(account, 49.00, stripe, emailService);
+
+    System.out.println();
+    System.out.println("--- FINAL STATE ---");
+    System.out.println("User: " + account.getUsername() + " | Balance remains safe at: $" + account.getWallet().getBalance());
+
+
+
 //    int[] list = new int[5];
 //
 //    list[0] = 2;
